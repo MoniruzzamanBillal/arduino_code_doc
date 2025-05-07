@@ -8,6 +8,7 @@ LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 
 int trigPin = 8;
 int echoPin = 9;
+int buzzer = 10;
 float distance;
 float duration;
 
@@ -16,6 +17,7 @@ float duration;
 void setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+  pinMode(buzzer, OUTPUT);
   Serial.begin(9600);
   lcd.begin(16, 2);
   lcd.clear();
@@ -34,11 +36,16 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = (duration / 2) * 0.034;
 
+  
   lcd.setCursor(0, 0);
-  lcd.print("dur = " + String(duration) + " mili" );
-
-  lcd.setCursor(0, 1);
   lcd.print("dist = " + String(distance) + " cm");
+
+
+  if (distance <= 30) {
+    digitalWrite(buzzer, HIGH);
+  } else {
+    digitalWrite(buzzer, LOW);
+  }
 
 
   delay(1000);
