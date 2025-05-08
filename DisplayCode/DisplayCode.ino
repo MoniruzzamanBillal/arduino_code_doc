@@ -2,14 +2,18 @@
 
 #include <LiquidCrystal.h>
 
+// LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 // LiquidCrystal lcd(rs, e, d4, d5, d6, d7)
-LiquidCrystal lcd(5, 6, 7, 8, 9, 10);
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
+
+
 
 
 
 void setup() {
   lcd.begin(16, 2);
   lcd.clear();
+   Serial.begin(9600);
 }
 
 void loop() {
@@ -17,4 +21,7 @@ void loop() {
   lcd.print("IUBAT");
   lcd.setCursor(5, 1);
   lcd.print("2025");
+  Serial.println("IUBAT 2025");
+  lcd.clear();
+  delay(500);
 }
