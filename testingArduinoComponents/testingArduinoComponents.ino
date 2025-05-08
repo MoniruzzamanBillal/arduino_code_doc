@@ -43,7 +43,7 @@ void loop() {
   if (distance >= 14) {
     digitalWrite(relayPin, LOW);
     Serial.println("Water Low - Pump ON");
-  } else if (distance <= 2) {
+  } else if (distance <= 2.6) {
     digitalWrite(relayPin, HIGH);
     Serial.println("Water Full - Pump OFF");
   } else if (distance >= 6 && distance <= 7) {
