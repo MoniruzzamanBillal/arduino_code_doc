@@ -1,6 +1,4 @@
 
-
-
 int trigPin = A0;
 int echoPin = A1;
 int redLed = A2;
@@ -11,8 +9,6 @@ float distance;
 float duration;
 int relayPin = 10;
 // relay_pin low = on
-
-
 
 void setup() {
   pinMode(trigPin, OUTPUT);
@@ -36,8 +32,6 @@ void loop() {
   distance = (duration / 2) * 0.034;
 
 
-
-
   Serial.print("distance  = ");
   Serial.print(distance);
   Serial.print(" cm ");
@@ -46,46 +40,21 @@ void loop() {
   if (distance >= 14) {
     digitalWrite(relayPin, LOW);
     Serial.println("Water Low - Pump ON");
-    // digitalWrite(redLed, HIGH);
-    // digitalWrite(buzzer, HIGH)
-    //   digitalWrite(blueLed, LOW);
-    // digitalWrite(greenLed, LOW);
     setOutputStates(true, false, false, true);
 
   } else if (distance <= 2.6) {
     digitalWrite(relayPin, HIGH);
     Serial.println("Water Full - Pump OFF");
-    // digitalWrite(redLed, LOW);
-    // digitalWrite(buzzer, LOW)
-    //   digitalWrite(blueLed, LOW);
-    // digitalWrite(greenLed, HIGH);
     setOutputStates(false, true, false, false);
 
   } else if (distance >= 3.4 && distance <= 8) {
     Serial.println("Water Moderate");
-
-    // digitalWrite(redLed, LOW);
-    // digitalWrite(buzzer, LOW)
-    //   digitalWrite(blueLed, HIGH);
-    // digitalWrite(greenLed, LOW);
     setOutputStates(false, false, true, false);
   }
 
 
-
-
-
-  delay(500);
+  delay(300);
 }
-
-
-
-
-
-
-
-
-
 
 
 // * function for changing the state of led and buzzer

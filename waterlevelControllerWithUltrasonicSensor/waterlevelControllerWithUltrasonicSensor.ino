@@ -55,7 +55,7 @@ void loop() {
     setOutputStates(false, false, true, false);
   }
 
-  delay(500);
+  delay(300);
 }
 
 
