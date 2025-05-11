@@ -13,7 +13,6 @@ LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 void setup() {
   lcd.begin(16, 2);
   lcd.clear();
-   Serial.begin(9600);
 }
 
 void loop() {
@@ -21,7 +20,4 @@ void loop() {
   lcd.print("IUBAT");
   lcd.setCursor(5, 1);
   lcd.print("2025");
-  Serial.println("IUBAT 2025");
-  lcd.clear();
-  delay(500);
 }
