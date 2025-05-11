@@ -1,9 +1,6 @@
 #include <LiquidCrystal.h>
 
-
 LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
-
-
 
 int trigPin = 8;
 int echoPin = 9;
@@ -52,7 +49,6 @@ void loop() {
     lcd.setCursor(4, 1);
     lcd.print("Pump On");
 
-
   } else if (distance <= 3.4) {
     lcd.clear();
     digitalWrite(buzzer, LOW);
@@ -62,8 +58,6 @@ void loop() {
     lcd.print("Water Level-Full");
     lcd.setCursor(4, 1);
     lcd.print("Pump OFF");
-
-
 
   } else if (distance >= 3.6 && distance <= 8) {
     lcd.clear();
