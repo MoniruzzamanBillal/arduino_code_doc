@@ -1,6 +1,6 @@
 
-int trigPin = A0;
-int echoPin = A1;
+int trigPin = 8;
+int echoPin = 9;
 float distance;
 float duration;
 
